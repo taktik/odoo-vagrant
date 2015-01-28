@@ -13,6 +13,7 @@ VAGRANTFILE_API_VERSION = "2"
 
     # Share current folder in /vagrant
     config.vm.synced_folder ".", "/vagrant", type: "nfs"
+    config.vm.synced_folder "/Users/dvd/Taktik/openerp/modules", "/modules", type: "nfs"
 
     # update package list, install some packages & build custom docker image
     config.vm.provision :shell, :path => "vagrant_bootstrap.sh"
