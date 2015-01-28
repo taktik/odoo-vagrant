@@ -13,3 +13,6 @@ sudo apt-get -y -q install postgresql-client-9.3 postgresql-contrib-9.3
 
 # Replace pg_hba.conf by our own
 cp -f /vagrant/templates/pg_hba.conf /etc/postgresql/9.3/main/pg_hba.conf
+
+# Allow connections from the outside
+sudo sed -e "s/#listen_addresses = 'localhost'/listen_addresses = '*'/g" -i /etc/postgresql/9.3/main/postgresql.conf
